@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Business Name] — Lawn Care in Monroe Township, NJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============ EDIT THESE VALUES TO CUSTOMIZE ============ */
+  :root {
+    --business-name: "Your Business Name";
+  }
+  /* ========================================================= */
+
+  :root {
+    --pine: #1F3A2E;       /* deep pine green - headers, dark bg */
+    --cut-green: #4C8C4A;  /* fresh-cut green - primary accent */
+    --stripe-light: #DCE8D5; /* pale mowed-stripe green */
+    --stripe-dark: #C7DABC;  /* darker mowed-stripe green */
+    --soil: #6B4226;       /* soil brown - grounding accent */
+    --chalk: #FAF8F3;      /* body background */
+    --gold: #E8A93B;       /* sunbeam gold - CTA */
+    --ink: #1C2B21;        /* body text */
+    --muted: #5B6B5F;      /* secondary text */
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Work Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--chalk);
+    line-height: 1.5;
+  }
+
+  a { color: inherit; }
+
+  .business-name::before { content: var(--business-name); }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--pine);
+    color: var(--chalk);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header .logo {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: 0.01em;
+  }
+
+  header nav a {
+    text-decoration: none;
+    color: var(--chalk);
+    font-size: 0.9rem;
+    margin-left: 24px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  header nav a:hover { opacity: 1; }
+
+  /* ---------- Mower stripe pattern (signature element) ---------- */
+  .stripes {
+    background: repeating-linear-gradient(
+      100deg,
+      var(--stripe-light) 0px,
+      var(--stripe-light) 48px,
+      var(--stripe-dark) 48px,
+      var(--stripe-dark) 96px
+    );
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 100px 24px 120px;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pine);
+    background: rgba(255,255,255,0.6);
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--pine);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+
+  .hero p.sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+
+  .mow-line {
+    position: absolute;
+    top: 0; left: -10%;
+    width: 20%;
+    height: 100%;
+    background: rgba(255,255,255,0.35);
+    transform: skewX(-12deg);
+    animation: mow 2.4s ease-out 0.3s 1;
+  }
+  @keyframes mow {
+    from { left: -20%; }
+    to { left: 110%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mow-line { animation: none; display: none; }
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:focus-visible { outline: 3px solid var(--pine); outline-offset: 2px; }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--pine);
+    box-shadow: 0 4px 0 #b9832a;
+  }
+  .btn-primary:hover { box-shadow: 0 6px 0 #b9832a; }
+
+  .btn-primary:active { transform: translateY(1px); box-shadow: 0 2px 0 #b9832a; }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 80px 24px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cut-green);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--pine);
+    margin-bottom: 16px;
+  }
+
+  section > .section-inner > p.lede {
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+
+  /* ---------- Services ---------- */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .service-card {
+    background: #fff;
+    border: 1px solid #E5E0D5;
+    border-radius: 10px;
+    padding: 28px 24px;
+    position: relative;
+  }
+
+  .service-card .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--soil);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pine);
+    margin-bottom: 8px;
+  }
+
+  .service-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .price {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--cut-green);
+  }
+  .price span {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+
+  .price-note {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ---------- Area ---------- */
+  .area-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (max-width: 720px) { .area-wrap { grid-template-columns: 1fr; } }
+
+  .radius-svg { width: 100%; max-width: 340px; }
+
+  .area-list {
+    list-style: none;
+    color: var(--muted);
+  }
+  .area-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #E5E0D5;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+  }
+  .area-list li span:last-child {
+    font-family: var(--font-mono);
+    color: var(--pine);
+    font-size: 0.85rem;
+  }
+
+  /* ---------- Form ---------- */
+  .form-wrap {
+    background: var(--pine);
+    color: var(--chalk);
+    border-radius: 16px;
+    padding: 48px;
+  }
+  @media (max-width: 600px) { .form-wrap { padding: 32px 20px; } }
+
+  .form-wrap h2 { color: var(--chalk); }
+  .form-wrap .section-label { color: var(--gold); }
+  .form-wrap p.lede { color: rgba(250,248,243,0.75); }
+
+  form { display: grid; gap: 18px; max-width: 560px; }
+
+  .field { display: grid; gap: 6px; }
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(250,248,243,0.9);
+  }
+
+  .field input, .field select, .field textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(250,248,243,0.25);
+    background: rgba(250,248,243,0.08);
+    color: var(--chalk);
+  }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(250,248,243,0.4); }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+    background: rgba(250,248,243,0.12);
+  }
+  .field select option { color: #000; }
+
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 500px) { .row-2 { grid-template-columns: 1fr; } }
+
+  #form-status {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    min-height: 1.2em;
+  }
+  #form-status.ok { color: #A9D9A0; }
+  #form-status.err { color: #E8A0A0; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer .contact-line {
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo business-name"></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Get a Quote</a>
+  </nav>
+</header>
+
+<section class="hero stripes">
+  <div class="mow-line"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Monroe Township, NJ &amp; surrounding areas</span>
+    <h1>Sharp lines. Healthy lawns. No surprises.</h1>
+    <p class="sub">Weekly mowing, clean edging, and seasonal fertilization for homeowners within 10 miles of Monroe Township. Tell us about your yard and we'll get back to you with a quote.</p>
+    <a href="#contact" class="btn btn-primary">Get a free quote</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <span class="section-label">What we do</span>
+    <h2>Services &amp; pricing</h2>
+    <p class="lede">Straightforward pricing to start. Your final quote depends on lot size and yard condition — we'll confirm it before your first visit.</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="tag">Weekly service</span>
+        <h3>Mowing &amp; Edging</h3>
+        <p>Up to 1/4 acre. Mow, trim, and clean edges along walkways and beds.</p>
+        <div class="price">$45<span> / visit</span></div>
+      </div>
+
+      <div class="service-card">
+        <span class="tag">Weekly service</span>
+        <h3>Mowing &amp; Edging</h3>
+        <p>1/4 to 1/2 acre. Same clean finish, sized for larger lots.</p>
+        <div class="price">$60<span> / visit</span></div>
+      </div>
+
+      <div class="service-card">
+        <span class="tag">Seasonal</span>
+        <h3>Fertilization Treatment</h3>
+        <p>Slow-release fertilizer application. Recommended 5–6 times per growing season.</p>
+        <div class="price">$65<span> / application</span></div>
+      </div>
+    </div>
+
+    <p class="price-note">Prices shown are starting estimates. We'll confirm exact pricing after seeing your yard — no obligation.</p>
+  </div>
+</section>
+
+<section id="area" class="stripes">
+  <div class="section-inner">
+    <span class="section-label">Where we work</span>
+    <h2>Service area</h2>
+    <div class="area-wrap">
+      <svg class="radius-svg" viewBox="0 0 300 300" role="img" aria-label="Map showing a 10 mile service radius centered on Monroe Township, NJ">
+        <circle cx="150" cy="150" r="130" fill="none" stroke="#4C8C4A" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+        <circle cx="150" cy="150" r="90" fill="none" stroke="#4C8C4A" stroke-width="2" stroke-dasharray="6 6" opacity="0.4"/>
+        <circle cx="150" cy="150" r="50" fill="none" stroke="#4C8C4A" stroke-width="2" stroke-dasharray="6 6" opacity="0.3"/>
+        <circle cx="150" cy="150" r="7" fill="#1F3A2E"/>
+        <text x="150" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1F3A2E">Monroe Twp</text>
+        <text x="150" y="26" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5B6B5F">10 mi radius</text>
+      </svg>
+      <ul class="area-list">
+        <li><span>Monroe Township</span><span>0–3 mi</span></li>
+        <li><span>Jamesburg / Spotswood</span><span>~4 mi</span></li>
+        <li><span>Cranbury / Helmetta</span><span>~5 mi</span></li>
+        <li><span>East Brunswick</span><span>~7 mi</span></li>
+        <li><span>Not sure if you're in range?</span><span>Just ask</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="form-wrap">
+      <span class="section-label">Get in touch</span>
+      <h2>Request a quote</h2>
+      <p class="lede">Fill this out and we'll reach out to confirm pricing and scheduling. No commitment.</p>
+
+      <form id="lead-form">
+        <div class="row-2">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(732) 555-0100">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" placeholder="Street, town, NJ">
+        </div>
+
+        <div class="field">
+          <label for="service_interest">What are you interested in?</label>
+          <select id="service_interest" name="service_interest">
+            <option value="Mowing & Edging">Mowing &amp; Edging</option>
+            <option value="Fertilization">Fertilization</option>
+            <option value="Both">Both</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" name="message" rows="3" placeholder="Lot size, gate codes, timing, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn">Send request</button>
+        <div id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="business-name"></div>
+  <div class="contact-line">
+    Aditya Kaushik &nbsp;·&nbsp; aditya.thegreat2008@gmail.com &nbsp;·&nbsp; +1 (732) 266-3306
+  </div>
+</footer>
+
+<script>
+  // ============ EDIT THESE TWO VALUES ============
+  const SUPABASE_URL = "https://pizmygjleirqpurzmsiu.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_wt_wDg_osGqonSuvqvrIrA_senHm9T0";
+  // =================================================
+
+  const form = document.getElementById('lead-form');
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusEl.textContent = "";
+    statusEl.className = "";
+
+    const payload = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      address: form.address.value.trim(),
+      service_interest: form.service_interest.value,
+      message: form.message.value.trim()
+    };
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+
+      form.reset();
+      statusEl.textContent = "Thanks — we'll be in touch soon.";
+      statusEl.className = "ok";
+    } catch (err) {
+      statusEl.textContent = "Something went wrong. Please try again or contact us directly.";
+      statusEl.className = "err";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send request";
+    }
+  });
+</script>
+
+</body>
+</html>
